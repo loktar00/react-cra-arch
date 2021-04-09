@@ -1,0 +1,49 @@
+{
+    "compilerOptions": {
+      "types": [ "node", "jest" ],
+      "baseUrl": "./src",
+      "paths": {
+        "*": [
+          "types/*"
+        ],
+        "@common/*": [
+          "./components/Common/*"
+        ],
+        "@components/*": [
+          "./components/*"
+        ],
+        "@pages/*":  [
+          "./components/Pages/*"
+        ],
+        "@applayout/*":  [
+          "./components/AppLayout/*"
+        ],
+        "@store/*": [
+          "./store/*"
+        ],
+        "@api/*": [
+          "./api/*"
+        ],
+        "@hooks/*": [
+          "./hooks/*"
+        ],
+        "@utils/*": [
+          "./utils/*"
+        ],
+        "@context/*": [
+          "./context/*"
+        ]
+      },
+      "allowJs": true,
+      "jsx": "react",
+      "experimentalDecorators": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true
+    },
+    "include": [
+      "./src/**/*"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  }

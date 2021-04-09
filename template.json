@@ -1,0 +1,178 @@
+{
+    "package": {
+      "dependencies": {
+        "react-router": "^5.2.0",
+        "react-router-dom": "^5.2.0",
+        "sass": "^1.32.0",
+        "typescript": "^4.1.2"
+      },
+      "devDependencies": {
+        "@storybook/addon-actions": "^6.1.11",
+        "@storybook/addon-knobs": "^6.1.11",
+        "@storybook/addon-links": "^6.1.11",
+        "@storybook/addon-storysource": "^6.1.11",
+        "@storybook/react": "^6.1.11",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^10.4.9",
+        "@types/jest": "^26.0.19",
+        "@types/node": "^14.14.20",
+        "@types/node-fetch": "^2.5.7",
+        "@types/react": "^16.14.2",
+        "@types/react-dom": "^16.9.10",
+        "@types/react-redux": "^7.1.15",
+        "@types/react-router-dom": "^5.1.7",
+        "@types/react-test-renderer": "^16.9.4",
+        "@typescript-eslint/eslint-plugin": "^3.10.1",
+        "@typescript-eslint/parser": "^3.10.1",
+        "cross-env": "^7.0.3",
+        "eslint": "^7.17.0",
+        "eslint-config-airbnb": "^18.2.1",
+        "eslint-config-prettier": "^6.15.0",
+        "eslint-import-resolver-typescript": "^2.3.0",
+        "eslint-loader": "^4.0.2",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jest": "^23.20.0",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-react": "^7.22.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "jest-canvas-mock": "^2.3.0",
+        "jest-css-modules": "^2.1.0",
+        "react-test-renderer": "^16.14.0",
+        "stylelint": "^13.8.0",
+        "stylelint-config-css-modules": "^2.2.0",
+        "stylelint-config-rational-order": "^0.1.2",
+        "stylelint-config-standard": "^20.0.0",
+        "stylelint-scss": "^3.18.0",
+        "ts-jest": "^26.4.4"
+      },
+      "scripts": {
+        "release": "npm update && cross-env NODE_ENV=production webpack --progress --config webpack.stage.config.js",
+        "release:prod": "npm update && cross-env NODE_ENV=production webpack --progress --config webpack.production.config.js",
+        "storybook": "start-storybook -p 6006 -c .storybook",
+        "build-storybook": "build-storybook -o storybook",
+        "lint": "eslint --ext .ts,.tsx ./",
+        "stylelint": "stylelint **/*.{css,scss}",
+        "stylelint:fix": "npm run stylelint -- --fix",
+        "lint:fix": "npm run lint -- --fix && npm run stylelint -- --fix",
+        "test": "cross-env NODE_ENV=test TZ=UTC jest",
+        "test:watch": "cross-env NODE_ENV=test TZ=UTC jest --watch",
+        "test:coverage": "cross-env NODE_ENV=test TZ=UTC jest --coverage"
+      },
+      "eslintConfig": {
+        "extends": [
+            "airbnb",
+            "prettier",
+            "plugin:react/recommended",
+            "plugin:@typescript-eslint/recommended",
+            "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "parserOptions": {
+            "project": "./tsconfig.json",
+            "tsconfigRootDir": "./",
+            "ecmaFeatures": {
+                "jsx": true,
+                "modules": true,
+                "legacyDecorators": true
+            }
+        },
+        "plugins": [
+            "@typescript-eslint",
+            "import"
+        ],
+        "settings": {
+            "react": {
+                "pragma": "React",
+                "version": "detect"
+            },
+            "import/resolver": {
+                "typescript": {}
+            }
+        },
+        "env": {
+            "browser": true,
+            "node": true,
+            "es6": true,
+            "jest": true
+        },
+        "ignorePatterns": ["**/*.test.*"],
+        "rules": {
+            "indent": [2, 4],
+            "no-plusplus": 0,
+            "semi": 1,
+            "array-element-newline": [1, "consistent"],
+            "quotes": [2, "single", "avoid-escape"],
+            "comma-dangle": [1, "never"],
+            "class-methods-use-this": 0,
+            "import/prefer-default-export": 0,
+            "no-void": 0,
+            "no-param-reassign": ["error", { "props": false }],
+            "no-multiple-empty-lines": [2, { "max": 1, "maxBOF": 1}],
+            "jsx-a11y/click-events-have-key-events": 0,
+            "jsx-a11y/no-static-element-interactions": 0,
+            "jsx-a11y/no-noninteractive-element-interactions" : 0,
+            "jsx-a11y/no-autofocus": 0,
+            "jsx-a11y/label-has-for": 0,
+            "jsx-a11y/label-has-associated-control": 0,
+            "jsx-a11y/control-has-associated-label": 0,
+            "jsx-a11y/htmlFor": 0,
+            "jsx-a11y/anchor-is-valid": 0,
+            "jsx-quotes": [2, "prefer-single"],
+            "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".js"] }],
+            "react/jsx-indent": [2, 4],
+            "react/jsx-indent-props": [2, 4],
+            "react/jsx-props-no-spreading": 0,
+            "react/jsx-first-prop-new-line": 0,
+            "react/static-property-placement": 0,
+            "react/state-in-constructor": 0,
+            "react/jsx-closing-bracket-location": [2, {
+                "nonEmpty": "after-props",
+                "selfClosing": "after-props"
+            }],
+            "prefer-destructuring": ["error", {
+                "array": false,
+                "object": true
+            }],
+            "camelcase": ["error", { "allow": ["^UNSAFE_"] }],
+            "import/extensions": [
+                "error",
+                "ignorePackages",
+                {
+                  "js": "never",
+                  "jsx": "never",
+                  "ts": "never",
+                  "tsx": "never"
+                }
+            ],
+            "import/no-extraneous-dependencies":[
+                "error", {
+                    "devDependencies": ["**/*.test.*", "**/*.stories.*", "jest.setup.ts"]
+                }
+            ],
+            "react/react-in-jsx-scope": 0,
+            "react/jsx-one-expression-per-line": 0,
+            "react/jsx-uses-react": 1,
+            "react/jsx-uses-vars": 1,
+            "react/no-did-update-set-state": 1,
+            "react/no-direct-mutation-state": 1,
+            "react/button-has-type": 0,
+            "@typescript-eslint/explicit-module-boundary-types": 0,
+            "@typescript-eslint/no-unsafe-assignment": 0,
+            "react/prop-types": 0,
+            "@typescript-eslint/no-non-null-assertion": 0,
+            "@typescript-eslint/ban-types": 0,
+            "@typescript-eslint/restrict-template-expressions": 0,
+            "@typescript-eslint/type-annotation-spacing": ["warn", {
+                "before": false,
+                "after": true
+            }],
+            "@typescript-eslint/member-delimiter-style": ["error", {
+                "multiline": {
+                    "delimiter": "comma",
+                    "requireLast": false
+                }
+            }]
+        }
+      }
+    }
+  }
